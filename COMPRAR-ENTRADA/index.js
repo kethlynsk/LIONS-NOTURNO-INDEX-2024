@@ -1,27 +1,31 @@
-let resposta
+let resposta = 0;
+
 console.log("Toca algum instrumento?")
-process.stdin.on("data", function (data){
-    let eUsuario = data.toString().trim().toLowerCase()
-    if(!resposta){
-        resposta = eUsuario
-        if(resposta == "s" || resposta == "sim"){
-            console.log("Qual  instrumento?")
-        }else if (resposta == "n" || resposta == "não" || resposta == "nao"){
-            console.log("Que pena!")
+
+process.stdin.on("data", function(data) {
+    let entrada_usuario = data.toString().trim().toLowerCase()
+
+    if(!resposta) {
+        resposta = entrada_usuario
+
+        if(resposta == "s" || resposta == "sim") {
+            console.log("Qual?")
+        } else if (resposta == "n" || resposta == "não" || resposta == "nao") {
+            console.log("Nada de bom")
             process.exit()
-        }else {
+        } else {
             resposta = undefined
-            console.log("Não entendi!")
+            console.log("Não entendi")
         }
     } else {
-        if(eUsuario == "violão"){
-            console.log("digirigdum")
-        } else if (eUsuario == "guitarra"){
-            console.log("trevoso")
-        } else if (eUsuario == "bateria"){
-            console.log("bater tambor")
-        } else{
-            console.log("instrumento esquisito")
+        if(entrada_usuario == "violão") {
+            console.log("digirigidum")
+        } else if(entrada_usuario == "guitarrra") {
+            console.log("Então vc é trovoso mesmo hein")
+        } else if(entrada_usuario == "bateria") {
+            console.log("Bater tambor")
+        } else {
+            console.log("Instrumento esquisito")
         }
     }
-})
+});
